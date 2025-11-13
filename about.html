@@ -63,8 +63,11 @@
 
     <!-- Header -->
     <header class="fixed top-0 left-0 w-full z-50 bg-white/10">
-    <?php include "header.php"; ?>
-</header>
+      <div id="site-header"></div>
+    </header>
+    <script>
+      fetch('header.html').then(r => r.text()).then(html => { document.getElementById('site-header').innerHTML = html; });
+    </script>
 
     <!-- Main Content -->
     <div class="flex gap-10 px-10 pt-[6rem] slide-in-left"> <!-- padding-top = header height -->

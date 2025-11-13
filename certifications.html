@@ -21,8 +21,11 @@
 <body class="bg-black text-white">
 
 <header class="relative h-20 bg-black shadow-md">
-    <?php include "header.php"; ?>
+    <div id="site-header"></div>
 </header>
+<script>
+  fetch('header.html').then(r => r.text()).then(html => { document.getElementById('site-header').innerHTML = html; });
+</script>
 
 <!-- PAGE HEADER -->
 <section class="text-center py-10">

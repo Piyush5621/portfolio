@@ -22,8 +22,11 @@
 
     <!-- HEADER -->
     <header class="fixed top-0 left-0 w-full z-50">
-        <?php include "header.php"; ?>
+        <div id="site-header"></div>
     </header>
+    <script>
+      fetch('header.html').then(r => r.text()).then(html => { document.getElementById('site-header').innerHTML = html; });
+    </script>
 
 
     <!-- MAIN SECTION -->

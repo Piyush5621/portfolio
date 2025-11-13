@@ -19,8 +19,11 @@
 <body class="bg-black text-white">
 
     <header class="fixed w-full">
-        <?php include "header.php"; ?>
+        <div id="site-header"></div>
     </header>
+    <script>
+      fetch('header.html').then(r => r.text()).then(html => { document.getElementById('site-header').innerHTML = html; });
+    </script>
 
     <section class="py-12 pt-[6rem]">
         <div class="max-w-6xl mx-auto px-6">
