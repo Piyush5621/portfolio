@@ -22,3 +22,5 @@
    services.php
    blog.php
    project.php
+   Certification.php
+   contact.php

@@ -53,7 +53,7 @@
           class="hover:text-gray-400 transition <?php echo $currentPage === 'contact.php' ? 'text-gray-400 underline' : ''; ?>">Contact</a>
 
         <!-- Admin Login -->
-        <a href="projects.php"
+        <a href="admin/login.html"
           class="ml-0 md:ml-2 mt-2 md:mt-0 px-4 py-2 bg-gray-800 text-white font-medium rounded-lg border border-gray-700 shadow hover:opacity-90 transition <?php echo $currentPage === 'projects.php' ? 'ring-2 ring-gray-600' : ''; ?>">
           Admin Login
         </a>

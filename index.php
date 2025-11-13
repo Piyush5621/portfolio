@@ -5,7 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Piyush Kumar</title>
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
@@ -24,7 +28,7 @@
       }
     }
 
-    /* Text Rotator Animation */
+    /* Rotating Text Animation */
     .text-rotate {
       position: relative;
       height: 3.5rem;
@@ -91,60 +95,53 @@
   <!-- Hero Section -->
   <section class="relative flex min-h-screen items-center justify-center px-6 md:px-20 pt-[6rem]">
 
-    <!-- Left Side Social Links (Vertical) -->
+    <!-- Social Icons -->
     <div class="hidden md:flex flex-col fixed left-20 top-1/2 transform -translate-y-1/2 gap-6 text-2xl text-gray-400">
-      <a href="https://github.com/yourusername" target="_blank"
-        class="hover:text-yellow-500 transition-all"><i class="fab fa-github"></i></a>
-      <a href="#" class="hover:text-yellow-500 transition-all"><i class="fab fa-facebook"></i></a>
-      <a href="https://linkedin.com/in/yourusername" target="_blank"
-        class="hover:text-yellow-500 transition-all"><i class="fab fa-linkedin"></i></a>
-      <a href="#" class="hover:text-yellow-500 transition-all"><i class="fab fa-instagram"></i></a>
-      <a href="mailto:piyushkk0206@gmail.com" class="hover:text-yellow-500 transition-all"><i
-          class="fas fa-envelope"></i></a>
+      <a href="#" class="hover:text-purple-500"><i class="fab fa-github"></i></a>
+      <a href="#" class="hover:text-purple-500"><i class="fab fa-facebook"></i></a>
+      <a href="#" class="hover:text-purple-500"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="hover:text-purple-500"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:piyushkk0206@gmail.com" class="hover:text-purple-500"><i class="fas fa-envelope"></i></a>
     </div>
 
-    <!-- Main Hero Content -->
+    <!-- Main Content -->
     <div class="flex flex-col md:flex-row items-center justify-center gap-8 w-full">
 
-      <!-- Left Side: Rotating Image -->
-      <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-[590px] md:h-[590px] flex-shrink-0">
-        <img src="images/Profile.jpg" alt="Profile 1"
-          class="fade-img active rounded-2xl w-full h-full object-cover shadow-lg">
-        <img src="images/Ppp.jpg" alt="Profile 2" class="fade-img rounded-2xl w-full h-full object-cover shadow-lg">
+      <!-- Rotating Images -->
+      <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-[590px] md:h-[590px]">
+        <img src="images/Profile.jpg" class="fade-img active rounded-2xl w-full h-full object-cover shadow-lg">
+        <img src="images/Ppp.jpg" class="fade-img rounded-2xl w-full h-full object-cover shadow-lg">
       </div>
 
-      <!-- Right Side: Text & Buttons -->
-      <div class="flex flex-col justify-center max-w-xl text-center md:text-left space-y-4 sm:space-y-6">
-
-        <!-- Hello Animation -->
+      <!-- Text -->
+      <div class="flex flex-col justify-center max-w-xl text-center md:text-left space-y-4">
         <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold slide-text">Hello!,</h1>
 
-        <!-- Rotating Text -->
-        <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-rotate">
+        <div class="text-rotate text-2xl sm:text-3xl md:text-4xl font-bold">
           <span>I'm Piyush Kumar 👋</span>
           <span>I'm a Web Developer 💻</span>
         </div>
 
-        <!-- Subtitle -->
-        <p class="text-base sm:text-lg md:text-2xl text-gray-300">CS Undergrad • Aspiring Full-Stack Developer</p>
+        <p class="text-base sm:text-lg md:text-2xl text-gray-300">
+          CS Undergrad • Aspiring Full-Stack Developer
+        </p>
 
-        <!-- Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 mt-2 sm:mt-4 justify-center md:justify-start">
-          <a href="#projects"
-            class="px-6 py-3 bg-gray-800 text-white rounded-xl hover:bg-yellow-500 transition-all duration-300 text-center">
+        <div class="flex flex-col sm:flex-row gap-4 mt-4">
+          <a href="projects.php" class="px-6 py-3 bg-gray-800 rounded-xl hover:bg-purple-500 transition">
             View My Projects
           </a>
-          <a href="#resume"
-            class="px-6 py-3 bg-gray-800 text-white rounded-xl hover:bg-yellow-500 transition-all duration-300 text-center">
+
+          <a href="#resume" class="px-6 py-3 bg-gray-800 rounded-xl hover:bg-purple-500 transition">
             <i class="fas fa-file-alt"></i> Resume
           </a>
         </div>
 
       </div>
     </div>
+
   </section>
 
-  <!-- Script for image rotation -->
+  <!-- Rotating Image Script -->
   <script>
     const images = document.querySelectorAll(".fade-img");
     let index = 0;
@@ -154,6 +151,101 @@
       index = (index + 1) % images.length;
       images[index].classList.add("active");
     }, 5000);
+  </script>
+
+
+  <!-- ============================ -->
+  <!-- FLOATING LIKE BUTTON (Corrected Placement) -->
+  <!-- ============================ -->
+  <div onclick="openLikePopup()"
+    class="fixed bottom-6 right-6 bg-purple-500 text-white px-4 py-3 rounded-full shadow-lg cursor-pointer hover:bg-purple-700 transition z-50">
+    ❤️ Like This Website
+  </div>
+
+
+  <!-- ============================ -->
+  <!-- FOOTER -->
+  <!-- ============================ -->
+  <footer class="bg-black text-gray-300 pt-10 pb-2 mt-10">
+    <hr class="border-gray-700 my-3">
+
+    <div class="text-center mb-3">
+      <span id="totalLikes" class="px-3 py-2 bg-purple-500 text-white rounded-full text-sm shadow">
+        ❤️ 0 Likes
+      </span>
+    </div>
+
+    <p class="text-center text-gray-500 text-sm">
+      © <?php echo date("Y"); ?> Piyush Kumar. All Rights Reserved.
+    </p>
+  </footer>
+
+
+  <!-- ============================ -->
+  <!-- POPUP (must be OUTSIDE footer) -->
+  <!-- ============================ -->
+  <div id="likePopup"
+    class="fixed inset-0 bg-black/50 flex justify-center items-center hidden z-[60]">
+    <div class="bg-purple-400 text-white p-6 rounded-xl w-80 shadow-xl border border-gray-700">
+      <h3 class="text-xl font-bold mb-3">Leave a Like ❤️</h3>
+
+      <input id="likeName" class="w-full border border-gray-600 bg-black p-2 rounded mb-3"
+        placeholder="Your Name (optional)">
+
+      <textarea id="likeMessage" class="w-full border border-gray-600 bg-black p-2 rounded mb-3"
+        placeholder="Your Message..."></textarea>
+
+      <button onclick="submitLike()"
+        class="w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition">
+        Send ❤️
+      </button>
+
+      <button onclick="closeLikePopup()"
+        class="w-full mt-2 bg-gray-800 py-2 rounded hover:bg-gray-700 transition">
+        Cancel
+      </button>
+    </div>
+  </div>
+
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabaseClient.js"></script>
+
+  <script>
+    function openLikePopup() {
+      document.getElementById("likePopup").classList.remove("hidden");
+    }
+
+    function closeLikePopup() {
+      document.getElementById("likePopup").classList.add("hidden");
+    }
+
+    async function submitLike() {
+      let name = document.getElementById("likeName").value;
+      let message = document.getElementById("likeMessage").value;
+
+      if (message.trim() === "") {
+        alert("Please write a message ❤️");
+        return;
+      }
+
+      await supabase.from("likes_website").insert([{ name, message }]);
+
+      alert("Thank you for your like ❤️");
+      closeLikePopup();
+      loadLikeCount();
+
+      document.getElementById("likeName").value = "";
+      document.getElementById("likeMessage").value = "";
+    }
+
+    async function loadLikeCount() {
+      const { data } = await supabase.from("likes_website").select("*");
+      document.getElementById("totalLikes").innerText = `❤️ ${data.length} Likes`;
+    }
+
+    document.addEventListener("DOMContentLoaded", loadLikeCount);
   </script>
 
 </body>

@@ -80,7 +80,7 @@
             <hr class="border-white/20">
 
             <!-- Contact Info -->
-            <div class="flex flex-col gap-2 text-yellow-400 text-[18px] p-2">
+            <div class="flex flex-col gap-2 text-purple-500 text-[18px] p-2">
                 <div class="flex items-center gap-4">
                     <i class="fas fa-envelope p-3 bg-white/10 rounded-xl"></i>
                     <div class="flex flex-col">
@@ -116,10 +116,11 @@
 
             <!-- Social Links -->
             <div class="flex gap-4 text-xl justify-center">
-                <a href="#" class="hover:text-yellow-400"><i class="fab fa-github"></i></a>
-                <a href="#" class="hover:text-yellow-400"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="hover:text-yellow-400"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="hover:text-yellow-400"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-purple-500"><i class="fab fa-github"></i></a>
+                <a href="#" class="hover:text-purple-500"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-purple-500"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="hover:text-purple-500"><i class="fab fa-linkedin"></i></a>
+                <!-- <a href="#" class="hover:text-purple-500"><i class="fab fa-leetcode"></i></a> -->
             </div>
         </div>
 
@@ -127,7 +128,7 @@
         <div class="w-2/3 flex flex-col gap-6 scrollable-content pb-6">
             <!-- About Me -->
             <div class="bg-white/10 rounded-xl p-6">
-                <h2 class="text-yellow-400 text-2xl font-bold pb-2 border-b border-white/10">About Me</h2>
+                <h2 class="text-purple-500 text-2xl font-bold pb-2 border-b border-white/10">About Me</h2>
                 <p class="pt-4 text-[15px]">
                     Hi, I'm Piyush Kumar, pursuing BTech in Computer Science & Engineering (2023–2027) at Lovely
                     Professional University.
@@ -141,7 +142,7 @@
 
             <!-- Education -->
             <div class="bg-white/10 rounded-xl p-6">
-                <h3 class="text-yellow-400 text-xl font-bold border-b-2 border-white/10 pb-2">Education</h3>
+                <h3 class="text-purple-500 text-xl font-bold border-b-2 border-white/10 pb-2">Education</h3>
                 <div class="pt-2">
                     <span class="font-semibold">10th Standard (2020)</span><br>
                     <span>School: DAV Centenary Public School, Township</span><br>
@@ -160,7 +161,7 @@
 
             <!-- My Journey -->
             <div class="bg-white/10 rounded-xl p-6">
-                <h3 class="text-yellow-400 text-xl font-bold border-b-2 border-white/10 pb-2">My Journey</h3>
+                <h3 class="text-purple-500 text-xl font-bold border-b-2 border-white/10 pb-2">My Journey</h3>
                 <p class="pt-2 text-[15px]">
                     From school to college, my journey has been driven by curiosity and passion for technology. Starting
                     with small HTML/CSS projects, I gradually moved to full-stack development, building projects like
@@ -170,7 +171,7 @@
 
             <!-- Hobbies -->
             <div class="bg-white/10 rounded-xl p-6">
-                <h3 class="text-yellow-400 text-xl font-bold border-b-2 border-white/10 pb-2">Hobbies</h3>
+                <h3 class="text-purple-500 text-xl font-bold border-b-2 border-white/10 pb-2">Hobbies</h3>
                 <ul class="list-disc list-inside text-[15px]">
                     <li>Coding and problem-solving</li>
                     <li>Exploring new web technologies</li>
@@ -182,7 +183,7 @@
 
             <!-- Additional content to demonstrate scrolling -->
             <div class="bg-white/10 rounded-xl p-6">
-                <h3 class="text-yellow-400 text-xl font-bold border-b-2 border-white/10 pb-2">Skills</h3>
+                <h3 class="text-purple-500 text-xl font-bold border-b-2 border-white/10 pb-2">Skills</h3>
                 <ul class="list-disc list-inside text-[15px]">
                     <li>HTML, CSS, JavaScript</li>
                     <li>PHP, MySQL</li>
@@ -193,7 +194,7 @@
             </div>
 
             <div class="bg-white/10 rounded-xl p-6">
-                <h3 class="text-yellow-400 text-xl font-bold border-b-2 border-white/10 pb-2">Projects</h3>
+                <h3 class="text-purple-500 text-xl font-bold border-b-2 border-white/10 pb-2">Projects</h3>
                 <p class="pt-2 text-[15px]">
                     I've worked on several projects including NexaMart, a full-stack e-commerce platform, and various
                     web applications that demonstrate my skills in both frontend and backend development.
