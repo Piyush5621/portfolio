@@ -1,0 +1,24 @@
+/portfolio
+   /assets
+   /css
+   /js
+   /images
+   /admin
+       dashboard.php
+       login.php
+       logout.php
+       messages.php
+       analytics.php
+       projects.php
+       blog.php
+   /backend
+       db.php
+       saveMessage.php
+       saveLike.php
+       fetchAnalytics.php
+       adminAuth.php
+   index.php
+   about.php
+   services.php
+   blog.php
+   project.php
