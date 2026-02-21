@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaPaperPlane, FaCheck, FaMapMarkerAlt, FaTerminal, FaCode } from 'react-icons/fa';
 import MagneticButton from './MagneticButton';
 import confetti from 'canvas-confetti';
@@ -60,54 +60,69 @@ const HolographicCard = () => {
 
     return (
         <div className="perspective-1000 w-full max-w-sm lg:max-w-md mx-auto aspect-[1.58/1] cursor-pointer group" onClick={() => setIsFlipped(!isFlipped)}>
+            {/* Outer motion.div handles the 3D mouse tilt tracking */}
             <motion.div
                 style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
-                animate={{ rotateY: isFlipped ? 180 : 0 }}
-                transition={{ duration: 0.6, type: "spring", stiffness: 260, damping: 20 }}
-                className="relative w-full h-full transition-all duration-200"
+                className="relative w-full h-full"
             >
-                <div className="absolute inset-0 bg-[#0a0a0a] rounded-xl border border-white/10 p-6 flex flex-col justify-between overflow-hidden backface-hidden z-20 shadow-[0_0_30px_rgba(0,85,255,0.1)]">
-                    <div className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
-                    <motion.div className="absolute w-[300px] h-[300px] bg-[#0055FF] blur-[100px] opacity-20 rounded-full pointer-events-none -z-10" style={{ x, y }} />
-                    <div className="flex justify-between items-start z-10">
-                        <div className="relative group-hover:scale-105 transition-transform duration-300">
-                            <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-white/20 relative z-10">
-                                <img src="/images/Profile.jpg" alt="Profile" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                {/* Inner div handles the smooth 0.6s CSS flip, eliminating animation conflicts */}
+                <div 
+                    className="relative w-full h-full rounded-xl shadow-[0_0_30px_rgba(0,85,255,0.1)]"
+                    style={{ 
+                        transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)", 
+                        transformStyle: "preserve-3d", 
+                        transition: "transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1)" 
+                    }}
+                >
+                    {/* FRONT FACE */}
+                    <div className="absolute inset-0 bg-[#0a0a0a] rounded-xl border border-white/10 p-6 flex flex-col justify-between overflow-hidden backface-hidden z-20">
+                        <div className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+                        <motion.div className="absolute w-[300px] h-[300px] bg-[#0055FF] blur-[100px] opacity-20 rounded-full pointer-events-none -z-10" style={{ x, y }} />
+                        
+                        <div className="flex justify-between items-start z-10">
+                            <div className="relative group-hover:scale-105 transition-transform duration-300">
+                                <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-white/20 relative z-10">
+                                    <img src="/images/Profile.jpg" alt="Profile" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                                </div>
+                                <div className="absolute -inset-1 bg-[#0055FF] rounded-full blur opacity-40 group-hover:opacity-75 transition-opacity duration-300"></div>
+                                <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border border-[#0a0a0a] z-20"></div>
                             </div>
-                            <div className="absolute -inset-1 bg-[#0055FF] rounded-full blur opacity-40 group-hover:opacity-75 transition-opacity duration-300"></div>
-                            <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border border-[#0a0a0a] z-20"></div>
+                            <div className="text-right">
+                                <div className="font-mono text-[10px] text-[#0055FF] tracking-widest mb-1">ID: DEV_092</div>
+                                <div className="flex items-center justify-end gap-2 text-white/60 font-mono text-xs">
+                                    <span>{time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                                    <FaMapMarkerAlt className="text-[#0055FF]" />
+                                </div>
+                            </div>
                         </div>
-                        <div className="text-right">
-                            <div className="font-mono text-[10px] text-[#0055FF] tracking-widest mb-1">ID: DEV_092</div>
-                            <div className="flex items-center justify-end gap-2 text-white/60 font-mono text-xs">
-                                <span>{time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
-                                <FaMapMarkerAlt className="text-[#0055FF]" />
+
+                        <div className="z-10 relative">
+                            <h3 className="text-2xl font-bold text-white tracking-tight mb-1">Piyush Kumar</h3>
+                            <div className="flex items-center gap-2">
+                                <span className="h-[1px] w-4 bg-[#0055FF]"></span>
+                                <p className="text-[#0055FF] font-mono text-xs uppercase tracking-wider">Full Stack Engineer</p>
+                            </div>
+                        </div>
+
+                        <div className="flex justify-between items-end z-10 border-t border-white/10 pt-4 mt-2">
+                            <FaCode className="text-white/20" />
+                            <div className="text-[9px] text-gray-500 font-mono flex items-center gap-1">
+                                <span className="w-1 h-1 bg-[#0055FF] rounded-full animate-pulse"></span>
+                                SECURE_ACCESS
                             </div>
                         </div>
                     </div>
-                    <div className="z-10 relative">
-                        <h3 className="text-2xl font-bold text-white tracking-tight mb-1">Piyush Kumar</h3>
-                        <div className="flex items-center gap-2">
-                            <span className="h-[1px] w-4 bg-[#0055FF]"></span>
-                            <p className="text-[#0055FF] font-mono text-xs uppercase tracking-wider">Full Stack Engineer</p>
+
+                    {/* BACK FACE */}
+                    <div className="absolute inset-0 bg-[#0055FF] rounded-xl p-8 flex flex-col items-center justify-center backface-hidden border border-white/20" style={{ transform: "rotateY(180deg)" }}>
+                        <div className="bg-white p-3 rounded-lg mb-4 shadow-xl transform group-hover:scale-105 transition-transform">
+                            <div className="w-24 h-24 bg-black flex items-center justify-center text-white text-[8px] font-mono text-center leading-tight">SCAN_FOR<br/>V_CARD</div>
                         </div>
+                        <p className="text-white font-bold tracking-wider text-sm">DOWNLOAD RESUME</p>
+                        <p className="text-white/60 text-[10px] font-mono mt-2">ENCRYPTED // V.2.0</p>
                     </div>
-                    <div className="flex justify-between items-end z-10 border-t border-white/10 pt-4 mt-2">
-                        <FaCode className="text-white/20" />
-                        <div className="text-[9px] text-gray-500 font-mono flex items-center gap-1">
-                            <span className="w-1 h-1 bg-[#0055FF] rounded-full animate-pulse"></span>
-                            SECURE_ACCESS
-                        </div>
-                    </div>
-                </div>
-                <div className="absolute inset-0 bg-[#0055FF] rounded-xl p-8 flex flex-col items-center justify-center backface-hidden border border-white/20" style={{ transform: "rotateY(180deg)" }}>
-                    <div className="bg-white p-3 rounded-lg mb-4 shadow-xl transform group-hover:scale-105 transition-transform">
-                        <div className="w-24 h-24 bg-black flex items-center justify-center text-white text-[8px] font-mono text-center leading-tight">SCAN_FOR<br/>V_CARD</div>
-                    </div>
-                    <p className="text-white font-bold tracking-wider text-sm">DOWNLOAD RESUME</p>
-                    <p className="text-white/60 text-[10px] font-mono mt-2">ENCRYPTED // V.2.0</p>
                 </div>
             </motion.div>
         </div>
@@ -120,13 +135,11 @@ const TerminalInput = ({ label, type, name, value, onChange, lineNumber }) => {
     return (
         <div className="relative mb-8 group">
             <div className="flex items-start gap-4">
-                {/* Fixed position line number */}
                 <span className={`font-mono text-sm mt-3 transition-colors duration-300 ${focused ? 'text-[#0055FF]' : 'text-gray-700'}`}>
                     {lineNumber}
                 </span>
                 
                 <div className="relative w-full">
-                    {/* Label handling */}
                     <label className={`absolute left-3 transition-all duration-300 pointer-events-none font-mono text-[11px] uppercase tracking-wider z-20 ${focused || value ? '-top-6 left-0 text-[#0055FF]' : 'top-3 text-gray-600'}`}>
                         {focused || value ? `// ${label}` : label}
                     </label>
@@ -156,7 +169,6 @@ const TerminalInput = ({ label, type, name, value, onChange, lineNumber }) => {
                                 placeholder={label}
                             />
                         )}
-                        {/* Interactive scanline/border effect */}
                         <div className={`absolute bottom-0 left-0 h-[1px] bg-[#0055FF] shadow-[0_0_10px_#0055FF] transition-all duration-500 ${focused ? 'w-full opacity-100' : 'w-0 opacity-0'}`} />
                     </div>
                 </div>
@@ -242,7 +254,6 @@ const Contact = () => {
                     </div>
 
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="relative">
-                        {/* Terminal Header */}
                         <div className="bg-[#1a1a1a] rounded-t-lg border-x border-t border-white/10 p-4 flex items-center gap-2">
                             <div className="flex gap-2">
                                 <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
@@ -255,7 +266,6 @@ const Contact = () => {
                             </div>
                         </div>
 
-                        {/* Terminal Body */}
                         <div className="bg-[#0a0a0a]/90 backdrop-blur-xl border border-white/10 rounded-b-lg p-8 md:p-12 shadow-2xl relative overflow-hidden">
                             <div className="absolute top-0 left-0 w-full h-1 bg-[#0055FF]/20 animate-scanline pointer-events-none z-0"></div>
                             
